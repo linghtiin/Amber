@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="Linghtiin`s Blog">
 <meta property="og:description" content="简介 在Hexo中支持Markdown语法，但有部分语法会导致不可预测的Bug。所以官方推荐以数据块的形式替代部分Markdown原生语法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-04T16:46:53.300Z">
+<meta property="og:updated_time" content="2019-12-08T04:16:32.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="how to use hexo">
 <meta name="twitter:description" content="简介 在Hexo中支持Markdown语法，但有部分语法会导致不可预测的Bug。所以官方推荐以数据块的形式替代部分Markdown原生语法。">
@@ -235,7 +235,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-05 00:46:53" itemprop="dateModified" datetime="2019-12-05T00:46:53+08:00">2019-12-05</time>
+                <time title="修改时间：2019-12-08 12:16:32" itemprop="dateModified" datetime="2019-12-08T12:16:32+08:00">2019-12-08</time>
               </span>
             
           
@@ -278,58 +278,85 @@
 <hr>
 <h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><ul>
 <li>hexo<ul>
-<li>init [folder]</li>
+<li>init [folder]<br>文件夹初始化</li>
 <li>new [layout] &lt;title&gt;<ul>
-<li>-p,–path</li>
-<li>-r,–replace</li>
-<li>-s,–slug</li>
+<li>-p,–path<br>指定文章路径</li>
+<li>-r,–replace<br>替换同名文章</li>
+<li>-s,–slug<br>使用文章Slug,作为文件名与URL</li>
 </ul>
-</li>
-<li>generate<blockquote>
-<p>该命令可被简写为<code>hexo g</code></p>
-<ul>
-<li>-d,–deploy</li>
-<li>-w,–watch</li>
-<li>-b,–bail</li>
-<li>-f,–force</li>
-<li>-c,-concurrency</li>
-</ul>
-</blockquote>
 </li>
 <li>publish [layout] &lt;filename&gt;<blockquote>
 <p>发布草稿</p>
 </blockquote>
 </li>
-<li>server<ul>
-<li>-p,–port</li>
-<li>-s,–static</li>
-<li>-l,–log</li>
+<li>server<blockquote>
+<p>启动服务器</p>
+<ul>
+<li>-p,–port<br>重设端口</li>
+<li>-s,–static<br>只使用静态文件</li>
+<li>-l,–log<br>启动日志记录</li>
 </ul>
+</blockquote>
+</li>
+<li>generate<blockquote>
+<p>编译文件<br>该命令可被简写为<code>hexo g</code></p>
+<ul>
+<li>-d,–deploy<br>立即部署</li>
+<li>-w,–watch<br>监视文件变动</li>
+<li>-b,–bail<br>生成过程中如果发生任何未处理的异常则抛出异常</li>
+<li>-f,–force<br>强制重新生成</li>
+<li>-c,-concurrency<br>设定最大生成文件数量</li>
+</ul>
+</blockquote>
 </li>
 <li>deploy<blockquote>
-<p>该命令可被简写为<code>hexo d</code></p>
+<p>发布文件<br>该命令可被简写为<code>hexo d</code></p>
 <ul>
 <li>-g,–generate</li>
 </ul>
 </blockquote>
 </li>
-<li>render<ul>
+<li>render<blockquote>
+<p>渲染文件</p>
+<ul>
 <li>-o,–output</li>
 </ul>
+</blockquote>
 </li>
-<li>migrate</li>
-<li>clean</li>
-<li>list</li>
-<li>version</li>
+<li>migrate<blockquote>
+<p>从其他博客系统中迁移内容</p>
+</blockquote>
+</li>
+<li>clean<blockquote>
+<p>清除缓存文件</p>
+</blockquote>
+</li>
+<li>list<blockquote>
+<p>列出网站资料</p>
+</blockquote>
+</li>
+<li>version<blockquote>
+<p>显示hexo版本</p>
+</blockquote>
+</li>
 </ul>
 </li>
 </ul>
-<p>附加：</p>
+<p><strong>附加</strong>：</p>
 <ul>
 <li>布局 Layout:<ul>
-<li>page</li>
-<li>post</li>
-<li>draft</li>
+<li>page<blockquote>
+<p>生成路径： source</p>
+</blockquote>
+</li>
+<li>post<blockquote>
+<p>生成路径： source/_posts</p>
+</blockquote>
+</li>
+<li>draft<blockquote>
+<p>生成路径： source/drafts</p>
+</blockquote>
+</li>
 </ul>
 </li>
 <li>文件名称常用变量:<ul>
@@ -341,116 +368,128 @@
 <li>:i_day</li>
 </ul>
 </li>
-<li>模板 Scaffold:<ul>
-<li>(未完成)</li>
+<li>模板 Scaffold:<blockquote>
+<p>生成文章时的布局模板文件，使用时用于layout参数</p>
+<ul>
+<li>layout</li>
+<li>title</li>
+<li>date</li>
 </ul>
+</blockquote>
 </li>
 </ul>
 <h3 id="文件夹结构"><a href="#文件夹结构" class="headerlink" title="文件夹结构"></a>文件夹结构</h3><ul>
 <li>project<ul>
-<li>.deploy_git<br>  发布用版本管理库</li>
-<li>node_modules<br>  环境包文件夹</li>
-<li>public<br>  存放编译后网页文件的文件夹</li>
-<li>scaffolds<br>  存放文件模板的文件夹</li>
-<li>source<br>  存放源文本的文件夹<ul>
-<li><em>posts</em><br>  发布文章的文件夹</li>
-<li><em>drafts</em><br>  草稿文章的文件夹</li>
+<li>.deploy_git<br>发布用版本管理库</li>
+<li>node_modules<br>环境包文件夹</li>
+<li>public<br>存放编译后网页文件的文件夹</li>
+<li>scaffolds<br>存放文件模板的文件夹</li>
+<li>source<br>存放源文本的文件夹<ul>
+<li><em>posts</em><br>发布文章的文件夹</li>
+<li><em>drafts</em><br>草稿文章的文件夹</li>
 </ul>
 </li>
-<li>themes<br>  存放主题的文件夹</li>
+<li>themes<br>存放主题的文件夹</li>
 </ul>
 </li>
+</ul>
+<h3 id="配置文件选项"><a href="#配置文件选项" class="headerlink" title="配置文件选项"></a>配置文件选项</h3><ul>
+<li>网站描述<ul>
+<li>title</li>
+<li>subtitle</li>
+<li>description</li>
+<li>keywords</li>
+<li>author</li>
+<li>language</li>
+<li>timezone</li>
+</ul>
+</li>
+<li>网址设置<ul>
+<li>url</li>
+<li>root</li>
+<li>permalink</li>
+<li>permalink_defaults</li>
+<li>pretty_urls</li>
+<li>pretty_urls.trailing_index</li>
+</ul>
+</li>
+<li>目录设置<ul>
+<li>source_dir</li>
+<li>public_dir</li>
+<li>tag_dir</li>
+<li>archive_dir</li>
+<li>category_dir</li>
+<li>code_dir</li>
+<li>i18n_dir</li>
+<li>skip_render</li>
+</ul>
+</li>
+<li>(未完成)</li>
 </ul>
 <hr>
 <h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><h3 id="标签插件"><a href="#标签插件" class="headerlink" title="标签插件"></a>标签插件</h3><ul>
-<li>代码</li>
+<li><strong>代码</strong></li>
 </ul>
-<p><strong>格式</strong>：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">(```)</span> <span class="string">[language]</span> <span class="string">[title]</span> <span class="string">[url]</span> <span class="string">[link</span> <span class="string">text]</span></span><br><span class="line"><span class="string">code</span> <span class="string">snippet</span></span><br><span class="line"><span class="string">(```)</span></span><br></pre></td></tr></table></figure>
+<p><em>格式</em>：</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">codeblock</span> <span class="string">[title]</span> <span class="string">[lang:language]</span> <span class="string">[url]</span> <span class="string">[link</span> <span class="string">text]</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">code</span> <span class="string">snippet</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">endcodeblock</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>引用</li>
+<li><strong>引用</strong></li>
 </ul>
-<p><strong>格式</strong>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">blockquote</span> <span class="string">[auther[,source]]</span> <span class="string">[link]</span> <span class="string">[source_link_title]</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">content</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">endblockquote</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
+<p><em>格式</em>：</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">blockquote</span> <span class="string">[auther[,source]]</span> <span class="string">[link]</span> <span class="string">[source_link_title]</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">content</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">endblockquote</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>样例</strong>:</p>
-<blockquote><p>使用引用块时可以提供参数，从而快速完成固定的格式。</p>
+  <blockquote><p>使用引用块时可以提供参数，从而快速完成固定的格式。</p>
 </blockquote>
 
-<p>引用书籍</p>
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<p>引用Twitter</p>
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io" target="_blank" rel="noopener">http://devdocs.io</a></p>
-<footer><strong>@DevDocs <https: twitter.com devdocs status 356095192085962752></https:></strong></footer></blockquote>
-
-<p>引用网络文章</p>
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin <http: 2009 sethgodin.typepad.com seths_blog 07 welcome-to-island-marketing.html> Welcome to Island Marketing</http:></strong></footer></blockquote>
-
+<p>  引用书籍<br>  <blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote></p>
+<p>  引用Twitter<br>  <blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a href="http://devdocs.io" target="_blank" rel="noopener">http://devdocs.io</a></p>
+<footer><strong>@DevDocs <https: twitter.com devdocs status 356095192085962752></https:></strong></footer></blockquote></p>
+<p>  引用网络文章<br>  <blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin <http: 2009 sethgodin.typepad.com seths_blog 07 welcome-to-island-marketing.html> Welcome to Island Marketing</http:></strong></footer></blockquote></p>
 <ul>
-<li>Pull Quote</li>
-</ul>
+<li><p><strong>Pull Quote</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">pullquote</span> <span class="string">[class]</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">content</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">endpullquote</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>jsFiddle</li>
-</ul>
+<blockquote class="pullquote [class]"><p>content</p>
+</blockquote>
+</li>
+<li><p><strong>jsFiddle</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">jsfiddle</span> <span class="string">shorttag</span> <span class="string">[tabs]</span> <span class="string">[skin]</span> <span class="string">[width]</span> <span class="string">[height]</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>Gist</li>
-</ul>
+<iframe scrolling="no" width="[width]" height="[height]" src="//jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" allowfullscreen></iframe>
+</li>
+<li><p><strong>Gist</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">gist</span> <span class="string">gist_id</span> <span class="string">[filename]</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>iframe</li>
-</ul>
+<script src="//gist.github.com/gist_id.js?file=[filename]"></script>
+</li>
+<li><p><strong>iframe</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">iframe</span> <span class="string">url</span> <span class="string">[width]</span> <span class="string">[height]</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Image</li>
-</ul>
+</li>
+<li><p><strong>Image</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">img</span> <span class="string">[class</span> <span class="string">names]</span> <span class="string">/path/to/image</span> <span class="string">[width]</span> <span class="string">[height]</span> <span class="string">"title text 'alt text'"</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Link</li>
-</ul>
+</li>
+<li><p><strong>Link</strong></p>
 <p>插入链接，并自动给外部链接添加 <code>target=&quot;_blank&quot;</code> 属性。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">link</span> <span class="string">text</span> <span class="string">url</span> <span class="string">[external]</span> <span class="string">[title]</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Include Code</li>
-</ul>
-<p>插入<code>code_dir</code> 指定的文件夹中的代码文件。</p>
+</li>
+<li><p><strong>Include Code</strong><br>插入<code>code_dir</code> 指定的文件夹中的代码文件。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">include_code</span> <span class="string">[title]</span> <span class="string">[lang:language]</span> <span class="string">[from:line]</span> <span class="string">[to:line]</span> <span class="string">path/to/file</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Youtube</li>
-</ul>
-<p>插入YouTube视频。</p>
+</li>
+<li><p><strong>Youtube</strong><br>插入YouTube视频。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">youtube</span> <span class="string">video_id</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>引用文章</li>
-</ul>
-<p>引用其它文章的链接。</p>
+</li>
+<li><p><strong>引用文章</strong><br>引用其它文章的链接。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">post_path</span> <span class="string">slug</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">post_link</span> <span class="string">slug</span> <span class="string">[title]</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>引用资源</li>
-</ul>
-<p>引用文章的资源</p>
+</li>
+<li><p><strong>引用资源</strong><br>引用文章的资源</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#123;%</span> <span class="string">asset_path</span> <span class="string">slug</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">asset_img</span> <span class="string">slug</span> <span class="string">[title]</span> <span class="string">%&#125;</span></span><br><span class="line"><span class="string">&#123;%</span> <span class="string">asset_link</span> <span class="string">slug</span> <span class="string">[title]</span> <span class="string">%&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>文章摘要</li>
+</li>
+<li><p><strong>文章摘要</strong><br>在文章中使用 <code>&lt;!-- more --&gt;</code>，那么 <code>&lt;!-- more --&gt;</code> 之前的文字将会被视为摘要。<br>首页中将只出现这部分文字，同时这部分文字也会出现在正文之中。</p>
+</li>
 </ul>
-<p>在文章中使用 <code>&lt;!-- more --&gt;</code>，那么 <code>&lt;!-- more --&gt;</code> 之前的文字将会被视为摘要。<br>首页中将只出现这部分文字，同时这部分文字也会出现在正文之中。</p>
 
     </div>
 
@@ -535,7 +574,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架"><span class="nav-number">2.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令"><span class="nav-number">2.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件夹结构"><span class="nav-number">2.2.</span> <span class="nav-text">文件夹结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">3.</span> <span class="nav-text">写作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标签插件"><span class="nav-number">3.1.</span> <span class="nav-text">标签插件</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架"><span class="nav-number">2.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令"><span class="nav-number">2.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件夹结构"><span class="nav-number">2.2.</span> <span class="nav-text">文件夹结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件选项"><span class="nav-number">2.3.</span> <span class="nav-text">配置文件选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">3.</span> <span class="nav-text">写作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标签插件"><span class="nav-number">3.1.</span> <span class="nav-text">标签插件</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -551,7 +590,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -569,7 +608,7 @@
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
