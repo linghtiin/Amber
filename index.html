@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-05 01:57:49" itemprop="dateModified" datetime="2020-03-05T01:57:49+08:00">2020-03-05</time>
+                <time title="修改时间：2020-03-05 03:06:15" itemprop="dateModified" datetime="2020-03-05T03:06:15+08:00">2020-03-05</time>
               </span>
             
           
@@ -250,30 +250,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>基础理念：</p>
+          <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p>基础理念：</p>
 <ol>
 <li>在执行不同函数时，需要同时执行一些重复操作；</li>
 <li>带参装饰器在定义函数时执行，将参数导入装饰器中，在运行时调取<strong>call</strong>方法；</li>
 <li>在只需使用在一个函数上的代码，不应使用装饰器；</li>
 </ol>
-<p>装饰器定义：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日志记录</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logger1</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        print(<span class="string">'befor run &#123;&#125; func.'</span>.format(func.__name__))</span><br><span class="line"></span><br><span class="line">        func(*arg, **kw)</span><br><span class="line"></span><br><span class="line">        print(<span class="string">'after run &#123;&#125; func.'</span>.format(func.__name__))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数运行计时</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timer</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line"></span><br><span class="line">        func(*args, **kw)</span><br><span class="line"></span><br><span class="line">        t2 = time.time()</span><br><span class="line"></span><br><span class="line">        cost_time = t2 - t1</span><br><span class="line">        print(<span class="string">'Cost time: &#123;&#125;'</span>.format(cost_time))</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment"># 带参函数装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hello</span><span class="params">(contry)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">deco</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> contry == <span class="string">"china"</span>:</span><br><span class="line">                print(<span class="string">"你好!"</span>)</span><br><span class="line">            <span class="keyword">elif</span> contry == <span class="string">"america"</span>:</span><br><span class="line">                print(<span class="string">'hello.'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 真正执行函数的地方</span></span><br><span class="line">            func(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> deco</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment"># 无参类装饰器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">logger2</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, func)</span>:</span></span><br><span class="line">        self.func = func</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        print(<span class="string">"[INFO]: the function &#123;func&#125;() is running..."</span></span><br><span class="line">            .format(func=self.func.__name__))</span><br><span class="line">        <span class="keyword">return</span> self.func(*args, **kwargs)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 带参类装饰器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">logger3</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, level=<span class="string">'INFO'</span>)</span>:</span></span><br><span class="line">        self.level = level</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            print(<span class="string">"[&#123;level&#125;]: the function &#123;func&#125;() is running..."</span></span><br><span class="line">                    .format(level=self.level, func=self.func.__name__))</span><br><span class="line">            func(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
-
-<p>装饰器使用：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@logger1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    print(<span class="string">'something'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@timer</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sleep</span><span class="params">(t)</span>:</span></span><br><span class="line">    time.sleep(t)</span><br><span class="line"></span><br><span class="line"><span class="meta">@say_hello('china')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pople_say</span><span class="params">(word)</span>:</span></span><br><span class="line">    print(word)</span><br><span class="line"></span><br><span class="line"><span class="meta">@logger2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    print(<span class="string">'something'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@logger3(level='WARNING')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    print(<span class="string">'something'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>常用装饰器实例：</p>
-<ul>
-<li>wraps</li>
-<li>property<ul>
-<li>method.getter</li>
-<li>method.setter</li>
-</ul>
-</li>
-</ul>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/12/07/python语法01/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -426,7 +417,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-05 01:58:39" itemprop="dateModified" datetime="2020-03-05T01:58:39+08:00">2020-03-05</time>
+                <time title="修改时间：2020-03-05 03:05:39" itemprop="dateModified" datetime="2020-03-05T03:05:39+08:00">2020-03-05</time>
               </span>
             
           
@@ -442,9 +433,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+          <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
 <li>conda<ul>
 <li>info<ul>
 <li>-envis</li>
@@ -473,15 +462,15 @@
 <li>activate</li>
 <li>deactivate</li>
 </ul>
-<h3 id="命令组合"><a href="#命令组合" class="headerlink" title="命令组合"></a>命令组合</h3><h4 id="构建环境"><a href="#构建环境" class="headerlink" title="构建环境"></a>构建环境</h4><p>使用<code>requirement.txt</code>文件<br>当conda命令无效时，使用pip命令代替</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while read requirement; <span class="keyword">do</span> conda install --yes $requirement || pip install $requirement; done &lt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>当conda命令无效时，不继续安装环境</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while read requirement; <span class="keyword">do</span> conda install --yes $requirement; done &lt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>使用<code>freeze.yml</code>文件</p>
-<p><code>conda env create -f freeze.yml</code></p>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/07/anoconda使用笔记/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
